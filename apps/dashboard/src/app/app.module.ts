@@ -1,11 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { NxModule } from '@nrwl/nx';
-import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { NxModule } from '@nrwl/nx';
 import { MaterialModule } from '@workshop/material';
+import { AppComponent } from './app.component';
+import { CustomersModule } from './customers/customers.module';
+import { HomeModule } from './home/home.module';
+import { ProjectsModule } from './projects/projects.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +16,10 @@ import { MaterialModule } from '@workshop/material';
     NxModule.forRoot(),
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HomeModule,
+    ProjectsModule,
+    CustomersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
