@@ -22,7 +22,7 @@ export class AppComponent {
     {
       path: '/projects',
       icon: 'work',
-      title: 'Home'
+      title: 'Projects'
     }
   ];
 }
