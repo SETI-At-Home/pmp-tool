@@ -1,6 +1,6 @@
-import { ProjectsService } from './../../../../../libs/core-data/src/lib/projects/projects.service';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { Project } from '@workshop/core-data';
+import { Project, ProjectsService } from '@workshop/core-data';
 
 @Component({
   selector: 'app-projects',
@@ -8,7 +8,7 @@ import { Project } from '@workshop/core-data';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
-  projects: Project[];
+  projects$;
   selectedProject: Project;
 
   constructor(private projectService: ProjectsService) {}
@@ -22,7 +22,12 @@ export class ProjectsComponent implements OnInit {
   }
 
   getProjects() {
-    this.projects = this.projectService.all();
+    this.projects$ = this.projectService.all();
+  }
+
+  deleteProject(project) {
+    this.projectService.delete(project.id)
+      .subscribe(result => this.getProjects());
   }
 
   cancel() {
