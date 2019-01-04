@@ -7,4 +7,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PMP Tool';
+
+  links = [
+    {
+      path: '/',
+      icon: 'home',
+      title: 'Home'
+    },
+    {
+      path: '/customers',
+      icon: 'face',
+      title: 'Customers'
+    },
+    {
+      path: '/projects',
+      icon: 'work',
+      title: 'Home'
+    }
+  ];
 }
